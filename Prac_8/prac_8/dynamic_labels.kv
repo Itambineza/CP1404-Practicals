@@ -1,0 +1,32 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    BoxLayout:
+        orientation: 'vertical'
+        # This layout is populated with Label widgets in app code
+        id: labels_box
+
+    Label:
+        size_hint_y: 0.1
+        text: app.status_text
+
+    TextInput:
+        size_hint_y: 0.1
+        hint_text: "Enter new label text"
+        multiline: False
+        write_tab: False
+        on_text_validate: app.add_new_label()
+        text: app.new_label_text
+        on_text: app.new_label_text = self.text
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.2
+
+        Button:
+            text: "Add Label"
+            on_press: app.add_new_label()
+
+        Button:
+            text: "Clear Labels"
+            on_press: app.clear_all()

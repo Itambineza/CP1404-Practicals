@@ -1,0 +1,56 @@
+# Red BoxLayout (Top-level)
+BoxLayout:
+    orientation: 'vertical'
+    padding: 20
+
+    # Top section (BoxLayout)
+    BoxLayout:
+        orientation: 'horizontal'
+
+        # Text input for number
+        TextInput:
+            id: input_number
+            text: '7'
+            font_size: 48
+            multiline: False
+
+        # Green BoxLayout (for "Up" and "Down" buttons)
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+
+            # Up Button
+            Button:
+                text: 'Up'
+                size_hint_y: None
+                height: 40
+                on_release: input_number.text = str(float(input_number.text) + 1)
+
+            # Down Button
+            Button:
+                text: 'Down'
+                size_hint_y: None
+                height: 40
+                on_release: input_number.text = str(float(input_number.text) - 1)
+
+        # Button to square the number
+        Button:
+            text: 'Square'
+            on_press: app.handle_calculate(input_number.text)
+
+    # Bottom section (BoxLayout)
+    BoxLayout:
+        orientation: 'horizontal'
+
+        # Label for instructions
+        Label:
+            text: 'Enter a number and press "Square".'
+            font_size: 18
+
+    # Output Label (Result)
+    Label:
+        id: output_label
+        font_size: 48
+        color: (1, 0, 1, 1)  # Pink color
+
+
