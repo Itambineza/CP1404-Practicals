@@ -46,11 +46,9 @@ def run_tests():
     # Assert test with no message - used to see if the function works properly
     assert repeat_string("Python", 1) == "Python"
     assert repeat_string("hi", 2) == "hi hi"
-
     # Assert test with custom message, used to see if Car's init method sets the odometer correctly
     car = Car()
     assert car._odometer == 0, "Car does not set odometer correctly"
-
     # Assert tests to check if Car sets the fuel correctly
     car = Car(fuel=10)
     assert car.fuel == 10, "Car does not set fuel correctly when passing a value"
